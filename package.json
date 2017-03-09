@@ -1,0 +1,29 @@
+{
+  "name": "helix-inferno",
+  "version": "1.0.0",
+  "description": "Inferno renderer for helix",
+  "main": "dist/index.js",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "scripts": {
+    "dist": "tsc && npm run browserify",
+    "browserify": "browserify -p tsify ./dist/index.js -o ./dist/bundle.js"
+  },
+  "author": "Joseph Luck",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "tsify": "^3.0.1",
+    "tslint": "^4.4.2",
+    "tslint-config-standard": "^4.0.0",
+    "typescript": "^2.2.1",
+    "uglify-js": "^2.7.5"
+  },
+  "dependencies": {
+    "helix-js": "file:../helix",
+    "inferno": "^1.3.0-rc.10",
+    "inferno-create-element": "^1.3.0-rc.10"
+  }
+}
