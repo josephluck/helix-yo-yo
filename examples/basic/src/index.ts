@@ -1,70 +1,66 @@
-require('es6-shim')
-import helix from 'helix-js'
-import h, {renderer} from '../../../src/index'
+import helix from '../../../src'
+import html from '../../../src/html'
 
 function links ({
   onRouteClick,
 }) {
-  return (
+  return html`
     <div>
       <a style='margin-right: 10px;' href='/'>view one</a>
       <a style='margin-right: 10px;' href='/bar'>view two</a>
       <a style='margin-right: 10px;' href='/bar/123'>view three (123)</a>
       <a style='margin-right: 10px;' href='/bar/456'>view three (456)</a>
       <a style='margin-right: 10px;' href='/bar/789'>view three (789)</a>
-      <a style='margin-right: 10px;' onclick={() => onRouteClick('/bar/abc')}>view three (abc)</a>
-      <a style='margin-right: 10px;' onclick={() => onRouteClick('/bar/def')}>view three (def)</a>
+      <a style='margin-right: 10px;' onclick=${() => onRouteClick('/bar/abc')}>view three (abc)</a>
+      <a style='margin-right: 10px;' onclick=${() => onRouteClick('/bar/def')}>view three (def)</a>
     </div>
-  )
+  `
 }
 
 function viewOne (state, prev, actions) {
-  return (
+  return html`
     <div>
-      {links({
+      ${links({
         onRouteClick: path => actions.location.set(path),
       })}
       <h1>view one</h1>
-      {state.title}
+      ${state.title}
       <div>
-        <input value={state.title} oninput={(e: any) => actions.set(e.target.value)} />
+        <input value=${state.title} oninput=${(e: any) => actions.set(e.target.value)} />
       </div>
     </div>
-  )
+  `
 }
 function viewTwo (state, prev, actions) {
-  return (
+  return html`
     <div>
-      {links({
+      ${links({
         onRouteClick: path => actions.location.set(path),
       })}
       <h1>view two</h1>
-      {state.title}
+      ${state.title}
       <div>
-        <input value={state.title} oninput={(e: any) => actions.set(e.target.value)} />
+        <input value=${state.title} oninput=${(e: any) => actions.set(e.target.value)} />
       </div>
     </div>
-  )
+  `
 }
 function viewThree (state, prev, actions) {
-  return (
+  return html`
     <div>
-      {links({
+      ${links({
         onRouteClick: path => actions.location.set(path),
       })}
-      <h1>view three {state.location.params.baz}</h1>
-      {state.title}
+      <h1>view three ${state.location.params.baz}</h1>
+      ${state.title}
       <div>
-        <input value={state.title} oninput={(e: any) => actions.set(e.target.value)} />
+        <input value=${state.title} oninput=${(e: any) => actions.set(e.target.value)} />
       </div>
     </div>
-  )
+  `
 }
 
-let mount = document.createElement('div')
-document.body.appendChild(mount)
-
-helix({
+const app = helix({
   model: {
     state: {
       title: 'not set',
@@ -123,34 +119,37 @@ helix({
     '': viewOne,
     'bar': {
       onEnter (state, prev, actions) {
-        actions.set('You have entered bar')
+        // actions.set('You have entered bar')
         console.log('bar onEnter', state.location.pathname)
       },
       onUpdate (state, prev, actions) {
-        actions.set('You have updated bar')
+        // actions.set('You have updated bar')
         console.log('bar onUpdate', state.location.pathname)
       },
       onLeave (state, prev, actions) {
-        actions.set('You have left bar')
+        // actions.set('You have left bar')
         console.log('bar onLeave', state.location.pathname)
       },
       view: viewTwo,
     },
     'bar/:baz': {
       onEnter (state, prev, actions) {
-        actions.set(`You have entered bar:/baz ${state.location.params.baz}`)
+        // actions.set(`You have entered bar:/baz ${state.location.params.baz}`)
         console.log('bar/:baz onEnter', state.location.pathname)
       },
       onUpdate (state, prev, actions) {
-        actions.set(`You have updated bar:/baz ${state.location.params.baz}`)
+        // actions.set(`You have updated bar:/baz ${state.location.params.baz}`)
         console.log('bar/:baz onUpdate', state.location.pathname)
       },
       onLeave (state, prev, actions) {
-        actions.set(`You have left bar:/baz ${state.location.params.baz}`)
+        // actions.set(`You have left bar:/baz ${state.location.params.baz}`)
         console.log('bar/:baz onLeave', state.location.pathname)
       },
       view: viewThree,
     }
   },
-  render: renderer(mount),
 })
+
+const node = document.createElement('div')
+document.body.appendChild(node)
+app(node)
