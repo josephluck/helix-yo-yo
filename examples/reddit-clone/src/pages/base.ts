@@ -1,4 +1,4 @@
-import html from '../../../../src/html'
+import html from '../../../../src'
 
 import alert from '../components/alert'
 import navigation from '../components/navigation'

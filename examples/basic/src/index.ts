@@ -1,5 +1,5 @@
-import helix from '../../../src'
-import html from '../../../src/html'
+import helix from 'helix-js'
+import html, { renderer } from '../../../src'
 
 function links ({
   onRouteClick,
@@ -60,7 +60,10 @@ function viewThree (state, prev, actions) {
   `
 }
 
-const app = helix({
+const mount = document.createElement('div')
+document.body.appendChild(mount)
+
+helix({
   model: {
     state: {
       title: 'not set',
@@ -148,8 +151,5 @@ const app = helix({
       view: viewThree,
     }
   },
+  render: renderer(mount),
 })
-
-const node = document.createElement('div')
-document.body.appendChild(node)
-app(node)

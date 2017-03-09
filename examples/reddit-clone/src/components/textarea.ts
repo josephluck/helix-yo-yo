@@ -1,4 +1,4 @@
-import html from '../../../../src/html'
+import html from '../../../../src'
 
 interface Opts {
   label?: string

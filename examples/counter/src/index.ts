@@ -1,5 +1,5 @@
-import helix from '../../../src'
-import html, {renderer} from '../../../src/renderers/yoyo'
+import helix from 'helix-js'
+import html, { renderer } from '../../../src'
 
 function counterView (state, prev, actions) {
   return html`

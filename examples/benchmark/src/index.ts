@@ -1,5 +1,5 @@
-const helix = require('../../../dist/index').default
-const html = require('../../../dist/html').default
+import helix from 'helix-js'
+import html, { renderer } from '../../../src'
 
 let startTime
 let lastMeasure
@@ -222,6 +222,9 @@ function model () {
   }
 }
 
+const mount = document.createElement('div')
+document.body.appendChild(mount)
+
 const app = helix({
   model: model(),
   routes: {
@@ -229,8 +232,5 @@ const app = helix({
       view,
     },
   },
+  render: renderer(mount),
 })
-
-const node = document.createElement('div')
-document.body.appendChild(node)
-app(node)
