@@ -1,12 +1,10 @@
 {
-  "name": "helix-benchmark",
+  "name": "helix-yo-yo-benchmark",
   "version": "1.0.0",
-  "description": "Helix benchmark",
+  "description": "Benchmark of helix with yo-yo as the renderer",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --css ./node_modules/bootstrap/dist/css/bootstrap.css -- -t babelify -p tsify",
-    "dist": "tsc && npm run browserify",
-    "browserify": "browserify -g babelify -g uglifyify dist/index.js -o dist/bundle.min.js"
+    "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --css ./node_modules/bootstrap/dist/css/bootstrap.css -- -t babelify -p tsify"
   },
   "author": "Joseph Luck",
   "license": "ISC",
@@ -21,9 +19,7 @@
     "tsify": "^3.0.1",
     "tslint": "^4.4.2",
     "tslint-config-standard": "^4.0.0",
-    "typescript": "^2.2.1",
-    "uglifyify": "^3.0.4",
-    "uglifyjs": "^2.4.10"
+    "typescript": "^2.2.1"
   },
   "dependencies": {
     "bootstrap": "^3.3.7"
