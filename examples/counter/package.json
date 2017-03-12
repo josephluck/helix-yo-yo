@@ -1,25 +1,24 @@
 {
-  "name": "helix-basic",
+  "name": "helix-yo-yo-counter",
   "version": "1.0.0",
-  "description": "Basic example of helix",
+  "description": "Counter example of helix with yo-yo as the renderer",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --css ./node_modules/bulma/css/bulma.css -- -p [ tsify ]",
-    "dist": "tsc && npm run browserify",
-    "browserify": "browserify -g uglifyify dist/index.js -o dist/bundle.min.js"
+    "dev": "budo ./src/index.ts --live --pushstate --host=localhost --port=8888 --base=/ --css ./node_modules/bulma/css/bulma.css -- -t babelify -p tsify"
   },
   "author": "Joseph Luck",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
     "budo": "^9.4.7",
+    "bulma": "^0.3.2",
     "tsify": "^3.0.1",
     "tslint": "^4.4.2",
-    "typescript": "^2.2.1",
-    "@types/node": "^7.0.5",
-    "browserify": "^14.1.0",
-    "bulma": "^0.3.2",
     "tslint-config-standard": "^4.0.0",
-    "uglifyify": "^3.0.4",
-    "uglifyjs": "^2.4.10"
+    "typescript": "^2.2.1"
   }
 }
