@@ -13,7 +13,6 @@ function stopMeasure () {
     window.setTimeout(function metaStopMeasure () {
       lastMeasure = null
       const stop = performance.now()
-      const duration = 0
       console.log(last + ' took ' + (stop - startTime))
     }, 0)
   }
@@ -137,7 +136,6 @@ function view (state, prev, actions) {
   `
 }
 
-
 function model () {
   let id = 1
 
@@ -225,7 +223,7 @@ function model () {
 const mount = document.createElement('div')
 document.body.appendChild(mount)
 
-const app = helix({
+helix({
   model: model(),
   routes: {
     '': {
