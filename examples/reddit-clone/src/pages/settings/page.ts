@@ -1,9 +1,6 @@
 import html from '../../../../../src'
 import textfield from '../../components/textfield'
-import textarea from '../../components/textarea'
 import form from '../../components/form'
-
-import authenticate from '../authenticate'
 import base from '../base'
 
 function page (state, prev, actions) {

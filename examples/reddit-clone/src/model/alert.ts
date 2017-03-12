@@ -1,10 +1,3 @@
-function emptyAlert () {
-  return {
-    description: '',
-    type: '',
-  }
-}
-
 export default function alert () {
   return {
     scoped: true,

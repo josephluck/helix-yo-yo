@@ -1,5 +1,3 @@
-import html from '../../../../src'
-
 export default function (view) {
   return {
     onEnter (state, prev, actions) {

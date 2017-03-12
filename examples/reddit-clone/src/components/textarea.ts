@@ -1,6 +1,6 @@
 import html from '../../../../src'
 
-interface Opts {
+export interface Opts {
   label?: string
   type?: string
   value: string

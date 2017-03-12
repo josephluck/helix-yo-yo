@@ -1,7 +1,7 @@
 import html from '../../../../src'
 import button from './button'
 
-interface Opts {
+export interface Opts {
   onsubmit: () => any
   oncancel?: () => any
   child: HTMLElement
