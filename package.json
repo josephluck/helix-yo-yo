@@ -1,5 +1,5 @@
 {
-  "name": "helix-inferno",
+  "name": "helix-yo-yo",
   "version": "1.0.0",
   "description": "Yo-yo renderer for helix",
   "main": "dist/index.js",
@@ -7,11 +7,16 @@
     "src/",
     "dist/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josephluck/helix-yo-yo"
+  },
   "types": "./dist/index.d.ts",
   "scripts": {
     "dist": "tsc && npm run browserify && npm run minify",
     "browserify": "browserify -g babelify dist/index.js -o dist/bundle.js",
-    "minify": "uglifyjs dist/bundle.js -c -m -o dist/bundle.min.js"
+    "minify": "uglifyjs dist/bundle.js -c -m -o dist/bundle.min.js",
+    "deploy": "npm install && npm run dist && npm publish"
   },
   "author": "Joseph Luck",
   "license": "ISC",
@@ -28,7 +33,7 @@
     "uglify-js": "^2.7.5"
   },
   "dependencies": {
-    "helix-js": "file:../helix",
+    "helix-js": "^1.0.1",
     "yo-yo": "^1.4.0"
   }
 }
