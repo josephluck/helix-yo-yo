@@ -1,5 +1,4 @@
-import helix from 'helix-js'
-import html, { renderer } from '../../../src'
+import helix, {html} from '../../../src'
 
 function todoList (state, prev, actions) {
   return html`
@@ -53,7 +52,7 @@ function todoList (state, prev, actions) {
 const mount = document.createElement('div')
 document.body.appendChild(mount)
 
-const app = helix({
+helix({
   model: {
     state: {
       todos: [
@@ -84,5 +83,5 @@ const app = helix({
     },
   },
   component: todoList,
-  render: renderer(mount),
+  mount,
 })

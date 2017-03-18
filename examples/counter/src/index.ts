@@ -1,5 +1,4 @@
-import helix from 'helix-js'
-import html, { renderer } from '../../../src'
+import helix, {html} from '../../../src'
 
 function counterView (state, prev, actions) {
   return html`
@@ -100,5 +99,5 @@ helix({
     },
   },
   component: counterView,
-  render: renderer(mount),
+  mount,
 })

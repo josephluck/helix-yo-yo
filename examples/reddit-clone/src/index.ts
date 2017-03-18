@@ -1,5 +1,4 @@
-import helix from 'helix-js'
-import { renderer } from '../../../src'
+import helix from '../../../src'
 import model from './model'
 import pages from './pages'
 
@@ -9,5 +8,5 @@ document.body.appendChild(mount)
 helix({
   model: model(),
   routes: pages(),
-  render: renderer(mount),
+  mount,
 })

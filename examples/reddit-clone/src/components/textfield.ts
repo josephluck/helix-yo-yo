@@ -1,4 +1,4 @@
-import html from '../../../../src'
+import {html} from '../../../../src'
 
 export default function textField ({
   label,

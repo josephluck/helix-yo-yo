@@ -1,4 +1,4 @@
-import html from '../../../../../src'
+import {html} from '../../../../../src'
 import base from '../base'
 import textfield from '../../components/textfield'
 import form from '../../components/form'

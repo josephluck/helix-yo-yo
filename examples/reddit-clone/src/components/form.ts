@@ -1,4 +1,4 @@
-import html from '../../../../src'
+import {html} from '../../../../src'
 import button from './button'
 
 export interface Opts {
