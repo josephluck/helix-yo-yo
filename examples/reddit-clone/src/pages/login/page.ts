@@ -1,8 +1,9 @@
-import html from '../../../../../src' 
+import html from '../../../../../src'
+import base from '../base'
 import textfield from '../../components/textfield'
 import form from '../../components/form'
 
-export default function login (state, prev, actions) {
+function page (state, prev, actions) {
   let pageState = state.pages.login
   let pageActions = actions.pages.login
 
@@ -41,4 +42,10 @@ export default function login (state, prev, actions) {
       })}
     </div>
   `
+}
+
+export default function () {
+  return {
+    view: base(page),
+  }
 }
