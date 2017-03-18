@@ -74,28 +74,16 @@ helix({
     },
     reducers: {
       increment (state, amount) {
-        return {
-          ...state,
-          count: state.count + amount,
-        }
+        return { count: state.count + amount }
       },
       decrement (state, amount) {
-        return {
-          ...state,
-          count: state.count - amount,
-        }
+        return { count: state.count - amount }
       },
       setAsyncTimeout (state, timeout) {
-        return {
-          ...state,
-          timeout,
-        }
+        return { timeout }
       },
       setAmount (state, amount) {
-        return {
-          ...state,
-          amount,
-        }
+        return { amount }
       }
     },
     effects: {
