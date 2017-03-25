@@ -6,12 +6,13 @@ function links ({
   return html`
     <div>
       <a style='margin-right: 10px;' href='/'>view one</a>
-      <a style='margin-right: 10px;' href='/bar'>view two</a>
+      <a style='margin-right: 10px;' href='/bar?a=123&b=345'>view two ?a=123&b=345</a>
       <a style='margin-right: 10px;' href='/bar/123'>view three (123)</a>
       <a style='margin-right: 10px;' href='/bar/456'>view three (456)</a>
       <a style='margin-right: 10px;' href='/bar/789'>view three (789)</a>
       <a style='margin-right: 10px;' onclick=${() => onRouteClick('/bar/abc')}>view three (abc)</a>
       <a style='margin-right: 10px;' onclick=${() => onRouteClick('/bar/def')}>view three (def)</a>
+      <a style='margin-right: 10px;' onclick=${() => onRouteClick('/bar/def?a=123&b=345')}>view three (def) ?a=123&b=345</a>
     </div>
   `
 }
@@ -31,6 +32,7 @@ function viewOne (state, prev, actions) {
   `
 }
 function viewTwo (state, prev, actions) {
+  console.log(state.location.params)
   return html`
     <div>
       ${links({
@@ -45,6 +47,7 @@ function viewTwo (state, prev, actions) {
   `
 }
 function viewThree (state, prev, actions) {
+  console.log(state.location.params)
   return html`
     <div>
       ${links({
@@ -123,6 +126,7 @@ helix({
       onEnter (state, prev, actions) {
         // actions.set('You have entered bar')
         console.log('bar onEnter', state.location.pathname)
+        console.log('---------')
       },
       onUpdate (state, prev, actions) {
         // actions.set('You have updated bar')
@@ -138,6 +142,7 @@ helix({
       onEnter (state, prev, actions) {
         // actions.set(`You have entered bar:/baz ${state.location.params.baz}`)
         console.log('bar/:baz onEnter', state.location.pathname)
+        console.log('---------')
       },
       onUpdate (state, prev, actions) {
         // actions.set(`You have updated bar:/baz ${state.location.params.baz}`)
@@ -148,7 +153,7 @@ helix({
         console.log('bar/:baz onLeave', state.location.pathname)
       },
       view: viewThree,
-    }
+    },
   },
   mount,
 })
