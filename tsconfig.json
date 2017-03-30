@@ -1,13 +1,13 @@
 {
 	"compilerOptions": {
 		"target": "es6",
-		"module": "es6",
+		"module": "commonjs",
 		"allowJs": false,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"preserveConstEnums": true,
 		"declaration": true,
-		"outDir": "dist",
+		"outDir": "lib",
 		"sourceMap": false,
 		"lib": [
 			"es6",
