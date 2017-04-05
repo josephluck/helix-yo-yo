@@ -1,4 +1,4 @@
-import helix, {html} from '../../../src'
+import helix, {html, log} from '../../../src'
 
 function links ({
   onRouteClick,
@@ -156,4 +156,5 @@ helix({
     },
   },
   mount,
+  plugins: [log],
 })

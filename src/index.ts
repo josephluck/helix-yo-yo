@@ -1,7 +1,8 @@
-import helix from 'helix-js'
+import helix, {log as helixLog} from 'helix-js'
 
 import * as yoyo from 'yo-yo'
 export const html = yoyo
+export const log = helixLog
 
 function renderer (dom) {
   let _dom = dom
